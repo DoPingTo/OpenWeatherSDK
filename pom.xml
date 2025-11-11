@@ -1,44 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>custom.openweather.sdk</groupId>
   <artifactId>openweather-client</artifactId>
   <version>1.0.0</version>
 
-  <repositories>
-    <repository>
-      <id>github</id>
-      <url>https://maven.pkg.github.com/DoPingTo/OpenWeatherSDK</url>
-    </repository>
-  </repositories>
-
-  <name>main</name>
-  <url>http://www.example.com</url>
+  <name>OpenWeather SDK</name>
+  <description>Java SDK for accessing OpenWeather API</description>
+  <url>https://github.com/DoPingTo/OpenWeatherSDK</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>5.11.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>custom.openweather.sdk</groupId>
-        <artifactId>openweather-client</artifactId>
-        <version>1.0.0</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -60,7 +37,11 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -75,5 +56,14 @@
       </plugin>
     </plugins>
   </build>
+
+  <!-- 👇 Важно для GitHub Packages -->
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/DoPingTo/OpenWeatherSDK</url>
+    </repository>
+  </distributionManagement>
 
 </project>
