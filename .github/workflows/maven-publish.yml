@@ -1,11 +1,10 @@
-# .github/workflows/maven-publish.yml
 name: Publish to GitHub Packages
 
 on:
-  workflow_dispatch:   # ✅ позволяет запускать вручную через UI
+  workflow_dispatch:   
   push:
     tags:
-      - 'v*'           # можно автопубликовать при создании тега (например, v1.0.0)
+      - 'v*'          
 
 jobs:
   publish:
