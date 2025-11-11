@@ -50,10 +50,10 @@ Returns a new or existing **WeatherServ** instance (singleton per API key).
 
 ### 🧠 Components
 
-- **CashWeather** – local cache (default: 10 cities, 10 min TTL).  
+- **CashWeather** – local cache (default: 10 cities, 10-minute TTL).  
   You can modify cache size or expiration time if needed.
 
-- **OpenWeatherClient** – asynchronous, low-level HTTP client for interacting with OpenWeather API.
+- **OpenWeatherClient** – asynchronous low-level HTTP client for interacting with the OpenWeather API.
 
 - **WeatherServ** – main entry point of the SDK; provides high-level methods and manages polling.
 
@@ -100,32 +100,62 @@ To run integration tests:
 mvn test
 ```
 
-or from IDE (JUnit 5 supported).  
+or directly from your IDE (JUnit 5 supported).  
 Make sure to set your `API_KEY` as an environment variable.
 
 ---
 
 ## 📦 Building
 
-To package the SDK into a `.jar`:
+To package the SDK into a `.jar` file:
 
 ```bash
 mvn clean package
 ```
 
-The JAR will be located at:
+The resulting JAR will be located at:
+
 ```
 target/openweather-client-1.0.0.jar
 ```
 
-You can then include it in your project:
+---
 
+## 🔗 Maven Integration
+
+Add the following repository and dependency to your `pom.xml`:
+
+### Repository
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <name>GitHub Packages</name>
+    <url>https://maven.pkg.github.com/DoPingTo/OpenWeatherSDK</url>
+  </repository>
+</repositories>
+```
+
+### Dependency
 ```xml
 <dependency>
-  <groupId>com.openweather.sdk</groupId>
+  <groupId>custom.openweather.sdk</groupId>
   <artifactId>openweather-client</artifactId>
   <version>1.0.0</version>
 </dependency>
+```
+
+If your package is private, add GitHub credentials to `~/.m2/settings.xml`:
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>github</id>
+      <username>DoPingTo</username>
+      <password>YOUR_GITHUB_TOKEN_HERE</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 ---
@@ -150,7 +180,7 @@ You can then include it in your project:
 
 ### 5. **Extensibility**
 - Modular design: low-level HTTP client (`OpenWeatherClient`) is decoupled from `WeatherServ`.  
-- Can be extended for additional OpenWeather endpoints (e.g., forecasts, air pollution, geocoding).
+- Easily extendable for additional OpenWeather endpoints (e.g., forecasts, air pollution, geocoding).
 
 ---
 
@@ -173,6 +203,6 @@ All SDK methods throw exceptions with descriptive messages in case of:
 
 ## 👨‍💻 Author & License
 
-Developed by **[DoPingTo]**  
+Developed by **[DoPingTo](https://github.com/DoPingTo)**  
 Licensed under the **MIT License**  
 © 2025 OpenWeather SDK
