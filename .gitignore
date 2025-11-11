@@ -1,0 +1,4 @@
+.mvn
+.vscode
+target/*
+!target/*.jar
