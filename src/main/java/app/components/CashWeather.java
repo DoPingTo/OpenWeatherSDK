@@ -7,7 +7,7 @@ import java.util.Map;
 public class CashWeather {
 
     public static int cashSize = 10;
-    private static long cashTimeInvalid = 600_000;
+    public static long cashTimeInvalid = 600_000;
 
     private static final Map<String, Map<String, Object>> cache = new LinkedHashMap<>() {
         @Override

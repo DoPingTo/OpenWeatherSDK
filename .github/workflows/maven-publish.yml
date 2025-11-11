@@ -1,0 +1,33 @@
+# .github/workflows/maven-publish.yml
+name: Publish to GitHub Packages
+
+on:
+  workflow_dispatch:   # ✅ позволяет запускать вручную через UI
+  push:
+    tags:
+      - 'v*'           # можно автопубликовать при создании тега (например, v1.0.0)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          server-id: github
+          settings-path: ${{ github.workspace }}
+
+      - name: Publish to GitHub Packages
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -173,6 +173,6 @@ All SDK methods throw exceptions with descriptive messages in case of:
 
 ## 👨‍💻 Author & License
 
-Developed by **[Your Name]**  
+Developed by **[DoPingTo]**  
 Licensed under the **MIT License**  
 © 2025 OpenWeather SDK

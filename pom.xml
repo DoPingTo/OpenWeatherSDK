@@ -8,6 +8,13 @@
   <artifactId>openweather-client</artifactId>
   <version>1.0.0</version>
 
+  <repositories>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/DoPingTo/OpenWeatherSDK</url>
+    </repository>
+  </repositories>
+
   <name>main</name>
   <url>http://www.example.com</url>
 
@@ -24,6 +31,11 @@
         <version>5.11.0</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>custom.openweather.sdk</groupId>
+        <artifactId>openweather-client</artifactId>
+        <version>1.0.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
