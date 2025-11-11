@@ -145,19 +145,6 @@ Add the following repository and dependency to your `pom.xml`:
 </dependency>
 ```
 
-If your package is private, add GitHub credentials to `~/.m2/settings.xml`:
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>DoPingTo</username>
-      <password>YOUR_GITHUB_TOKEN_HERE</password>
-    </server>
-  </servers>
-</settings>
-```
-
 ---
 
 ## 🧱 Design Principles
